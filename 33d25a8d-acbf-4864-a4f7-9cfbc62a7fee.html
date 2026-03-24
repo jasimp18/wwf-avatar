@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Статус задачи 33d25a8d-acbf-4864-a4f7-9cfbc62a7fee</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #151923;
+      --muted: #8b94a7;
+      --text: #e6ecff;
+      --accent: #7aa2f7;
+      --good: #19c37d;
+      --warn: #f7b733;
+      --bad: #ef476f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0;
+      background: linear-gradient(180deg, #0b0f14, #0f1115 40%);
+      color: var(--text);
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Inter,Helvetica,Arial,Segoe UI Symbol;
+    }
+    header {
+      padding: 18px 24px;
+      background: rgba(255,255,255,0.02);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: sticky; top: 0; backdrop-filter: blur(8px);
+      display: flex; align-items: center; gap: 16px; z-index: 5;
+    }
+    .pill { border: 1px solid rgba(255,255,255,0.08); padding: 6px 10px; border-radius: 999px; color: var(--muted); }
+    .container { padding: 20px 24px; max-width: 1400px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .card {
+      grid-column: span 12;
+      background: radial-gradient(800px 400px at 10% -10%, rgba(122,162,247,0.08), transparent 40%),
+                  radial-gradient(600px 300px at 110% 10%, rgba(25,195,125,0.08), transparent 40%),
+                  var(--panel);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; padding: 16px 16px 6px 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .cols-6 { grid-column: span 6; }
+    .cols-4 { grid-column: span 4; }
+    .cols-8 { grid-column: span 8; }
+    @media (max-width: 1200px) { .cols-6,.cols-4,.cols-8 { grid-column: span 12; } }
+    h2 { margin: 0 0 8px 0; font-weight: 600; font-size: 18px; }
+    .sub { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+    .kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 12px 0; }
+    .kpi { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 12px; }
+    .kpi .v { font-size: 18px; font-weight: 700; }
+    .kpi .l { font-size: 12px; color: var(--muted); }
+    .status-badge { display:inline-block; padding:6px 10px; border-radius:8px; font-weight:600; }
+    .status-Completed { background:rgba(25,195,125,0.15); color:var(--good); }
+    .status-Processing { background:rgba(122,162,247,0.15); color:var(--accent); }
+    .status-Pending { background:rgba(247,183,51,0.15); color:var(--warn); }
+    .status-Failed { background:rgba(239,71,111,0.15); color:var(--bad); }
+    .media-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap:10px; }
+    .thumb { border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); background:#0b0f14; }
+    .thumb img { width:100%; height:120px; object-fit:cover; display:block; }
+    .file-row { display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-bottom:1px dashed rgba(255,255,255,0.06); }
+    .file-row a { color:var(--text); text-decoration:none; }
+    .hint { color:var(--muted); font-size:12px; }
+    .video-wrap video { width:100%; border-radius:10px; border:1px solid rgba(255,255,255,0.06); background:#000; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="pill">Задача</div>
+    <div><strong>33d25a8d-acbf-4864-a4f7-9cfbc62a7fee</strong></div>
+    <div class="pill">task_id: d33d7345-8021-4410-81a4-740c06c02334</div>
+    <div class="pill">auto-refresh</div>
+  </header>
+  <div class="container">
+    <div class="grid">
+      <div class="card cols-8">
+        <h2>Статус выполнения</h2>
+        <div id="statusLine" class="sub">Загрузка...</div>
+        <div class="kpis">
+          <div class="kpi"><div class="v" id="kpiStatus">-</div><div class="l">Статус</div></div>
+          <div class="kpi"><div class="v" id="kpiElapsed">-</div><div class="l">Время (мин)</div></div>
+          <div class="kpi"><div class="v" id="kpiOutputs">-</div><div class="l">URL в задаче</div></div>
+          <div class="kpi"><div class="v" id="kpiFiles">-</div><div class="l">Файлов всего</div></div>
+          <div class="kpi"><div class="v" id="kpiImages">-</div><div class="l">Изображений</div></div>
+        </div>
+      </div>
+      <div class="card cols-4">
+        <h2>Счётчики по папкам</h2>
+        <div class="file-row"><div>root</div><div id="cnt_root">0</div></div>
+        <div class="file-row"><div>33d25a8d-acbf-4864-a4f7-9cfbc62a7fee_1k</div><div id="cnt_1k">0</div></div>
+        <div class="file-row"><div>33d25a8d-acbf-4864-a4f7-9cfbc62a7fee_10k</div><div id="cnt_10k">0</div></div>
+        <div class="file-row"><div>33d25a8d-acbf-4864-a4f7-9cfbc62a7fee_100k</div><div id="cnt_100k">0</div></div>
+        <div class="hint">Папки отображаются, когда создаются</div>
+      </div>
+      <div class="card cols-12">
+        <h2>Галерея изображений</h2>
+        <div class="media-grid" id="imagesGrid"></div>
+      </div>
+      <div class="card cols-12">
+        <h2>Видео</h2>
+        <div id="videosWrap" class="grid"></div>
+        <div class="hint">.mov может не воспроизводиться в браузере — используйте скачивание при необходимости</div>
+      </div>
+      <div class="card cols-12">
+        <h2>Список файлов</h2>
+        <div id="filesList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const taskId = "d33d7345-8021-4410-81a4-740c06c02334";
+    const modelName = "33d25a8d-acbf-4864-a4f7-9cfbc62a7fee";
+
+    async function fetchJson(url) {
+      try { const r = await fetch(url); return await r.json(); } catch(e) { return null; }
+    }
+
+    function fmtSize(bytes) {
+      const units = ["B","KB","MB","GB","TB"];
+      let i = 0, v = bytes || 0;
+      while (v >= 1024 && i < units.length-1) { v /= 1024; i++; }
+      return v.toFixed(2) + " " + units[i];
+    }
+
+    function setText(id, txt) {
+      const el = document.getElementById(id); if (el) el.innerText = txt;
+    }
+
+    function renderStatus(task) {
+      const st = task?.status || "-";
+      const runningSec = task?.started_at && !task?.completed_at ? (Date.now()/1000 - task.started_at) : 0;
+      const totalSec = task?.completed_at && task?.started_at ? (task.completed_at - task.started_at) : runningSec;
+      const mins = (totalSec/60).toFixed(1);
+      setText("kpiStatus", st);
+      setText("kpiElapsed", mins);
+      setText("kpiOutputs", (task?.output_urls?.length || 0));
+      const badge = `<span class="status-badge status-${st}">${st}</span>`;
+      const inf = [badge, task?.task_type ? ("тип: " + task.task_type) : "", task?.error ? ("ошибка: " + task.error) : ""].filter(Boolean).join(" • ");
+      document.getElementById("statusLine").innerHTML = inf || "Нет данных";
+    }
+
+    function renderFilesInfo(info) {
+      if (!info) return;
+      setText("kpiFiles", info?.totals?.files || 0);
+      setText("kpiImages", info?.totals?.images || 0);
+
+      document.getElementById("cnt_root").innerText = info?.folders?.root?.count || 0;
+      document.getElementById("cnt_1k").innerText = info?.folders?.["33d25a8d-acbf-4864-a4f7-9cfbc62a7fee_1k"]?.count || 0;
+      document.getElementById("cnt_10k").innerText = info?.folders?.["33d25a8d-acbf-4864-a4f7-9cfbc62a7fee_10k"]?.count || 0;
+      document.getElementById("cnt_100k").innerText = info?.folders?.["33d25a8d-acbf-4864-a4f7-9cfbc62a7fee_100k"]?.count || 0;
+
+      // Images grid
+      const imgs = [];
+      Object.values(info.folders || {}).forEach(f => (f.files||[]).forEach(x => { if (x.type === "image") imgs.push(x); }));
+      const grid = document.getElementById("imagesGrid");
+      grid.innerHTML = imgs.slice(0, 60).map(x => `
+        <a class="thumb" href="./${x.rel_path}" target="_blank" title="${x.name}">
+          <img src="./${x.rel_path}" alt="${x.name}" />
+        </a>`).join("");
+
+      // Videos
+      const videos = [];
+      Object.values(info.folders || {}).forEach(f => (f.files||[]).forEach(x => { if (x.type === "video") videos.push(x); }));
+      const vw = document.getElementById("videosWrap");
+      vw.innerHTML = videos.map(x => `
+        <div class="cols-4">
+          <div class="video-wrap">
+            <video controls preload="metadata">
+              <source src="./${x.rel_path}" type="video/mp4" />
+              <source src="./${x.rel_path}" />
+            </video>
+            <div class="sub">${x.name} — ${fmtSize(x.size)}</div>
+          </div>
+        </div>`).join("");
+
+      // Files list
+      const fl = document.getElementById("filesList");
+      const rows = [];
+      for (const [folder, data] of Object.entries(info.folders || {})) {
+        rows.push(`<div class="sub" style="margin-top:10px"><strong>${folder}</strong> (${data.count})</div>`);
+        rows.push(...(data.files||[]).slice(0, 300).map(x => `
+          <div class="file-row">
+            <div>${x.type.toUpperCase()} · <a href="./${x.rel_path}" target="_blank">${x.name}</a></div>
+            <div class="hint">${fmtSize(x.size)}</div>
+          </div>`));
+      }
+      fl.innerHTML = rows.join("");
+    }
+
+    async function tick() {
+      const t = await fetchJson("/api-converter-glb/status/" + taskId);
+      renderStatus(t || null);
+      const fi = await fetchJson("/api-converter-glb/model-files/" + modelName);
+      renderFilesInfo(fi || null);
+    }
+    tick();
+    setInterval(tick, 10000);
+  </script>
+</body>
+</html>

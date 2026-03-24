@@ -1,0 +1,32 @@
+{
+  "input_url": "http://195.26.224.126:1798/files/5a950f71-3946-4b58-919b-b22c289cc672",
+  "image_url": "https://renderfin.com/render/masks/t_pose_long.jpg",
+  "type": "t_pose",
+  "image_description": {
+    "title": "Forest Ranger Character model pack",
+    "description": "Introducing the Forest Ranger Character model pack, featuring a detailed and stylized ranger complete with accessories. Perfect for animated films, games, or educational applications, this model embodies the spirit of the wilderness. \n\nEach model has 3 levels of detail: low-poly (1000 triangles for mobile), middle-poly (10,000 triangles for environment), and high-poly (100,000 triangles), which allows for the use of this model in production rendering (such as 3ds Max, Maya, Cinema4D, Blender, Vray/Corona/Cycles, and all others), game engines (Unity and Unreal compatible), and interactive presentations, providing a choice of detail based on the LOD System principle.\n\nThe model's textures are PBR, Diffuse, NormalMap, and reflection/roughness/metallic, which are suitable for any modern rendering engine. All models are accurately unwrapped and have no overlapping UV. All textures are 4096*4096 in size.\n\nIdeal for use in nature exploration games, training simulations, and animated storytelling, this character brings charm and realism to any project.\n\nIf you like this model, please leave a comment and like it.",
+    "keywords": [
+      "ranger",
+      "character",
+      "forest",
+      "green",
+      "hat",
+      "beard",
+      "uniform",
+      "boots",
+      "belt",
+      "stylized",
+      "animation",
+      "game",
+      "simulation",
+      "wilderness",
+      "adventure",
+      "explorer",
+      "outdoor",
+      "nature",
+      "accessories"
+    ]
+  },
+  "background_url": "https://renderfin.com/render/default_user/7df84038-a0b7-49cf-871d-639ade697dc3_Background.png",
+  "z_depth_url": "https://renderfin.com/render/default_user/7df84038-a0b7-49cf-871d-639ade697dc3_ZBuffer.exr"
+}
